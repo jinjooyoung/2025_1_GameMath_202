@@ -19,7 +19,7 @@ public class Fov : MonoBehaviour
         Vector3 toPlayer = (player.position - transform.position).normalized;
         Vector3 forward = transform.forward;
 
-        float dot = Vector3.Dot(forward, toPlayer);
+        float dot = Dot(toPlayer, forward);
         float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
 
         enemy.color = Color.white;
@@ -29,4 +29,12 @@ public class Fov : MonoBehaviour
             enemy.color = Color.red;
         }
     }
+
+    // ³»Àû
+    float Dot(Vector3 a, Vector3 b)
+    {
+        return a.x* b.x + a.y * b.y + a.z * b.z;
+    }
+
+    
 }

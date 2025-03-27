@@ -30,7 +30,18 @@ public class Cross : MonoBehaviour
 
     bool IsLeft(Vector3 forward, Vector3 targetDirection, Vector3 up)
     {
-        Vector3 cross = Vector3.Cross(forward, targetDirection);
+        Vector3 cross = CrossV(forward, targetDirection);
         return Vector3.Dot(cross, up) > 0;
     }
+
+    // ¿ÜÀû
+    Vector3 CrossV(Vector3 a, Vector3 b)
+    {
+        return new Vector3(
+            a.y * b.z - a.z * b.y,
+            a.z * b.x - a.x * b.z,
+            a.x * b.y - a.y * b.x);
+    }
 }
+
+
